@@ -1,41 +1,36 @@
 /* ==========================================================================
-   Hodjat Asghari Esfeden, Ph.D. — Interactive Site Logic
+   Hodjat Asghari Esfeden, Ph.D. — Minimal Site Interactions
    ========================================================================== */
 
 (function () {
   'use strict';
 
-  /* ---------- Theme Toggle ---------- */
+  /* ---------- Subtle Light / Dark Theme Toggle (Defaults to Warm Paper Light) ---------- */
   const root = document.documentElement;
   const themeBtn = document.getElementById('theme-toggle');
-  const sunIcon = document.getElementById('icon-sun');
-  const moonIcon = document.getElementById('icon-moon');
+  const themeLabel = document.getElementById('theme-label');
 
   function applyTheme(theme) {
     if (theme === 'dark') {
       root.setAttribute('data-theme', 'dark');
-      if (sunIcon) sunIcon.style.display = 'block';
-      if (moonIcon) moonIcon.style.display = 'none';
-      if (themeBtn) themeBtn.setAttribute('aria-label', 'Switch to light theme');
+      if (themeLabel) themeLabel.textContent = 'Light mode';
+      if (themeBtn) themeBtn.setAttribute('aria-label', 'Switch to light mode');
     } else {
       root.removeAttribute('data-theme');
-      if (sunIcon) sunIcon.style.display = 'none';
-      if (moonIcon) moonIcon.style.display = 'block';
-      if (themeBtn) themeBtn.setAttribute('aria-label', 'Switch to dark theme');
+      if (themeLabel) themeLabel.textContent = 'Dark mode';
+      if (themeBtn) themeBtn.setAttribute('aria-label', 'Switch to dark mode');
     }
   }
 
-  const savedTheme = (function () {
-    try { return localStorage.getItem('hodjat-theme'); } catch (_) { return null; }
-  })();
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem('hodjat-theme-v2'); } catch (_) {}
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
 
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(next);
-      try { localStorage.setItem('hodjat-theme', next); } catch (_) {}
+      try { localStorage.setItem('hodjat-theme-v2', next); } catch (_) {}
     });
   }
 
@@ -50,7 +45,7 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () {
       toastEl.classList.remove('show');
-    }, 2400);
+    }, 2200);
   }
 
   /* ---------- Clipboard Helper ---------- */
@@ -76,7 +71,7 @@
     });
   }
 
-  /* ---------- Audio Name Pronunciation ---------- */
+  /* ---------- Name Pronunciation Audio ---------- */
   const pronounceBtn = document.getElementById('pronounce-btn');
   const nameAudio = document.getElementById('name-audio');
 
@@ -101,112 +96,61 @@
     });
   }
 
-  /* ---------- Mobile Menu Drawer ---------- */
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileDrawer = document.getElementById('mobile-drawer');
+  /* ---------- Publication Topic Filter ---------- */
+  const tabs = document.querySelectorAll('.pub-tab');
+  const pubRows = document.querySelectorAll('.pub-row');
 
-  if (mobileBtn && mobileDrawer) {
-    mobileBtn.addEventListener('click', function () {
-      const open = mobileDrawer.classList.toggle('open');
-      mobileBtn.setAttribute('aria-expanded', String(open));
-    });
-
-    mobileDrawer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileDrawer.classList.remove('open');
-        mobileBtn.setAttribute('aria-expanded', 'false');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter') || 'all';
+      pubRows.forEach(function (row) {
+        const cats = (row.getAttribute('data-cat') || '').split(',');
+        row.style.display = (filter === 'all' || cats.indexOf(filter) !== -1) ? '' : 'none';
       });
-    });
-  }
-
-  /* ---------- Publications Filtering & Search ---------- */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const searchInput = document.getElementById('pub-search-input');
-  const pubCards = document.querySelectorAll('.pub-card');
-  const emptyState = document.getElementById('pub-empty');
-  const pubCountLabel = document.getElementById('pub-count-label');
-  let activeTopic = 'all';
-
-  function updatePublications() {
-    const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
-    let visible = 0;
-
-    pubCards.forEach(function (card) {
-      const topics = (card.getAttribute('data-topics') || '').split(',');
-      const text = card.textContent.toLowerCase();
-      const matchesTopic = activeTopic === 'all' || topics.indexOf(activeTopic) !== -1;
-      const matchesQuery = !query || text.indexOf(query) !== -1;
-      const show = matchesTopic && matchesQuery;
-      card.style.display = show ? '' : 'none';
-      if (show) visible += 1;
-    });
-
-    if (emptyState) {
-      emptyState.style.display = visible === 0 ? 'block' : 'none';
-    }
-    if (pubCountLabel) {
-      pubCountLabel.textContent = visible + ' of ' + pubCards.length + ' publications';
-    }
-  }
-
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      filterBtns.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      activeTopic = btn.getAttribute('data-filter') || 'all';
-      updatePublications();
     });
   });
 
-  if (searchInput) {
-    searchInput.addEventListener('input', updatePublications);
-  }
-
-  /* ---------- Abstract & BibTeX Drawers + Copy BibTeX ---------- */
+  /* ---------- Expandable Abstract / BibTeX Drawers ---------- */
   document.querySelectorAll('[data-toggle-drawer]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       const targetId = btn.getAttribute('data-toggle-drawer');
       const drawer = document.getElementById(targetId);
       if (!drawer) return;
-      const card = btn.closest('.pub-card');
-      const isOpen = drawer.classList.contains('open');
+      const row = btn.closest('.pub-row');
+      const wasOpen = drawer.classList.contains('open');
 
-      // Close sibling drawers in the same card
-      if (card) {
-        card.querySelectorAll('.pub-drawer').forEach(function (d) {
-          d.classList.remove('open');
-        });
-        card.querySelectorAll('[data-toggle-drawer]').forEach(function (b) {
-          b.setAttribute('aria-expanded', 'false');
-        });
+      if (row) {
+        row.querySelectorAll('.pub-drawer').forEach(function (d) { d.classList.remove('open'); });
+        row.querySelectorAll('[data-toggle-drawer]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
       }
-
-      if (!isOpen) {
+      if (!wasOpen) {
         drawer.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
+  /* ---------- Copy BibTeX ---------- */
   document.querySelectorAll('[data-copy-bib]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      const bibId = btn.getAttribute('data-copy-bib');
-      const pre = document.getElementById(bibId);
-      if (!pre) return;
-      copyText(pre.textContent.trim()).then(function () {
-        const orig = btn.innerHTML;
+      const bibEl = document.getElementById(btn.getAttribute('data-copy-bib'));
+      if (!bibEl) return;
+      copyText(bibEl.textContent.trim()).then(function () {
+        const orig = btn.textContent;
         btn.classList.add('copied');
-        btn.textContent = 'Copied BibTeX';
+        btn.textContent = 'Copied';
         showToast('BibTeX copied to clipboard');
         setTimeout(function () {
           btn.classList.remove('copied');
-          btn.innerHTML = orig;
-        }, 1800);
+          btn.textContent = orig;
+        }, 1600);
       });
     });
   });
 
-  /* ---------- Copy Email Button ---------- */
+  /* ---------- Copy Email ---------- */
   const copyEmailBtn = document.getElementById('copy-email-btn');
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', function () {
@@ -217,25 +161,9 @@
     });
   }
 
-  /* ---------- Expandable Milestones Archive ---------- */
-  const milestonesToggle = document.getElementById('milestones-toggle');
-  const milestonesList = document.getElementById('milestones-list');
-  if (milestonesToggle && milestonesList) {
-    const archivedCount = milestonesList.querySelectorAll('.milestone-row.archived').length;
-    const collapsedLabel = 'Show full 2017\u20132022 archive (' + archivedCount + ' more)';
-    milestonesToggle.textContent = collapsedLabel;
-    milestonesToggle.addEventListener('click', function () {
-      const expanded = milestonesList.classList.toggle('expanded');
-      milestonesToggle.textContent = expanded
-        ? 'Show recent highlights only'
-        : collapsedLabel;
-      milestonesToggle.setAttribute('aria-expanded', String(expanded));
-    });
-  }
-
-  /* ---------- Active Nav Scrollspy ---------- */
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  const sections = Array.from(navLinks)
+  /* ---------- Rail Scrollspy ---------- */
+  const railLinks = document.querySelectorAll('.rail-nav a[href^="#"]');
+  const sections = Array.from(railLinks)
     .map(function (a) { return document.querySelector(a.getAttribute('href')); })
     .filter(Boolean);
 
@@ -245,14 +173,14 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             const id = '#' + entry.target.id;
-            navLinks.forEach(function (a) {
+            railLinks.forEach(function (a) {
               a.classList.toggle('active', a.getAttribute('href') === id);
             });
           }
         });
       },
-      { rootMargin: '-28% 0px -60% 0px', threshold: 0 }
+      { rootMargin: '-20% 0px -68% 0px', threshold: 0 }
     );
-    sections.forEach(function (sec) { observer.observe(sec); });
+    sections.forEach(function (s) { observer.observe(s); });
   }
 })();
