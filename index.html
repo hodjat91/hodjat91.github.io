@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hodjat Asghari Esfeden, Ph.D. — Senior Silicon &amp; AI Engineer</title>
+  <meta name="description" content="Hodjat Asghari Esfeden, Ph.D. — Senior Silicon & AI Engineer at Google (Google Research & TPU Silicon). Agentic chip design, execution-grounded EDA benchmarks, TPU verification, GPU microarchitecture, and hardware security." />
+  <meta name="author" content="Hodjat Asghari Esfeden" />
+  <meta name="keywords" content="Hodjat Asghari Esfeden, Senior Silicon Engineer, Google Research, Google TPU, Agentic Chip Design, ML for EDA, Design Verification, UVM, SystemVerilog, GPU Microarchitecture, Computer Architecture, ISCA, MICRO, ASPLOS, DAC, UC Riverside" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hodjat.me/" />
+  <meta property="og:title" content="Hodjat Asghari Esfeden, Ph.D. — Senior Silicon &amp; AI Engineer" />
+  <meta property="og:description" content="Senior Silicon & AI Engineer at Google building autonomous spec-to-silicon multi-agent flows, execution-grounded EDA benchmarks, and TPU verification infrastructure." />
+  <meta property="og:image" content="https://hodjat.me/assets/hodjat-portrait.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23184e77'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='Georgia,serif' font-size='36' font-weight='600'%3EH%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hodjat Asghari Esfeden",
+    "honorificSuffix": "Ph.D.",
+    "jobTitle": "Senior Silicon & AI Engineer",
+    "worksFor": { "@type": "Organization", "name": "Google" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of California, Riverside" },
+      { "@type": "CollegeOrUniversity", "name": "Sharif University of Technology" }
+    ],
+    "url": "https://hodjat.me",
+    "sameAs": [
+      "https://www.linkedin.com/in/hodjat-asghari-esfeden-b8448784/",
+      "https://scholar.google.com/citations?user=2jTzd5YAAAAJ",
+      "https://github.com/hodjat91",
+      "https://x.com/hodjat91"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <audio id="name-audio" preload="none">
+    <source src="name.ogg" type="audio/ogg" />
+  </audio>
+
+  <!-- ==================== Header / Navigation ==================== -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span>Hodjat Asghari Esfeden</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#patents">Patents &amp; Honors</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="Hodjat_Resume.pdf" target="_blank" rel="noopener" class="btn btn-primary nav-resume-desktop" id="nav-resume-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Resume PDF
+        </a>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Switch to dark theme">
+          <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="icon-sun" style="display:none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#patents">Patents &amp; Honors</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="Hodjat_Resume.pdf" target="_blank" rel="noopener">Download Resume PDF</a></li>
+    </ul>
+  </div>
+
+  <!-- ==================== Main Content ==================== -->
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Google Research &middot; AI &amp; TPU Silicon &middot; Bay Area, CA</p>
+            <div class="hero-title-row">
+              <h1 class="hero-name">Hodjat Asghari Esfeden, Ph.D.</h1>
+              <button type="button" class="pronounce-btn" id="pronounce-btn" title="Listen to name pronunciation">
+                <span class="sound-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span>Pronounce</span>
+              </button>
+            </div>
+            <p class="hero-subtitle">Senior Silicon &amp; AI Engineer &mdash; Agentic Chip Design, TPU Silicon &amp; Execution-Grounded Evaluation Benchmarks</p>
+
+            <div class="hero-bio">
+              <p>
+                I am a <strong>Senior Silicon &amp; AI Engineer at Google</strong> with over 6 years contributing to multiple generations of <strong>Google Tensor Processing Units (TPUs)</strong> &mdash; spanning block-level verification, SoC execution, cloud-scale EDA simulation infrastructure, and production LLM agent systems for hardware engineering. Currently in <strong>Google Research</strong> (in partnership with AI &amp; TPU Silicon), I build autonomous spec-to-silicon multi-agent flows, simulation-in-the-loop debugging agents, and execution-grounded evaluation benchmarks over commercial EDA toolchains.
+              </p>
+              <p>
+                I earned my <strong>Ph.D. and M.Sc. in Computer Science</strong> from the <a href="https://www.ucr.edu/" target="_blank" rel="noopener">University of California, Riverside</a> under <a href="https://www.cs.ucr.edu/~nael/" target="_blank" rel="noopener">Prof. Nael Abu-Ghazaleh</a>, researching GPU microarchitecture, compiler co-design, ML acceleration, and hardware security, and my <strong>B.Sc. in Computer Engineering</strong> from <a href="https://en.sharif.ir/" target="_blank" rel="noopener">Sharif University of Technology</a>.
+              </p>
+            </div>
+
+            <div class="hero-links">
+              <a href="Hodjat_Resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" id="hero-resume-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Resume
+              </a>
+              <a href="https://scholar.google.com/citations?user=2jTzd5YAAAAJ" target="_blank" rel="noopener" class="btn btn-secondary">
+                Google Scholar
+              </a>
+              <a href="https://github.com/hodjat91" target="_blank" rel="noopener" class="btn btn-secondary">
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/hodjat-asghari-esfeden-b8448784/" target="_blank" rel="noopener" class="btn btn-secondary" id="hero-linkedin-link">
+                LinkedIn
+              </a>
+              <a href="mailto:hodjat91@gmail.com" class="btn btn-ghost">
+                hodjat91@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <aside class="portrait-card" aria-label="Profile overview">
+            <div class="portrait-frame">
+              <img src="assets/hodjat-portrait.jpg" alt="Portrait of Hodjat Asghari Esfeden" width="800" height="800" />
+            </div>
+            <div class="portrait-meta">
+              <div class="meta-row">
+                <span class="meta-label">Affiliation</span>
+                <span class="meta-val">Google Research &amp; TPU</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Location</span>
+                <span class="meta-val">Bay Area, CA</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Doctorate</span>
+                <span class="meta-val">Ph.D., UC Riverside</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Focus</span>
+                <span class="meta-val">Agentic Silicon &amp; EDA</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="impact-strip" aria-label="Career highlights">
+          <div class="impact-item">
+            <span class="impact-num">6+ yrs</span>
+            <span class="impact-label">Google TPU Silicon &amp; AI</span>
+            <span class="impact-sub">Block DV, SoC &amp; Agentic EDA</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-num">9 Papers</span>
+            <span class="impact-label">Top-Tier Architecture Venues</span>
+            <span class="impact-sub">3&times; ISCA &middot; 2&times; MICRO &middot; ASPLOS &middot; DAC</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-num">2 Patents</span>
+            <span class="impact-label">U.S. GPU Microarchitecture</span>
+            <span class="impact-sub">1 Granted ('25) &middot; 1 Published ('23)</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-num">Top 2</span>
+            <span class="impact-label">UCR Campus Teaching Honor</span>
+            <span class="impact-sub">Distinguished Teaching Award HM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Experience & Technical Expertise ==================== -->
+    <section id="experience" class="band alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Career &amp; Engineering Impact</p>
+            <h2 class="section-title">Experience</h2>
+          </div>
+          <p class="section-note">Bridging production TPU silicon verification, cloud-scale EDA infrastructure, and autonomous multi-agent AI systems.</p>
+        </div>
+
+        <div class="exp-stack">
+          <!-- Google -->
+          <article class="exp-org-card">
+            <div class="exp-org-header">
+              <h3 class="exp-org-name">Google <span class="exp-org-loc">&middot; Mountain View &amp; Sunnyvale, CA</span></h3>
+              <span class="exp-org-span">Apr 2021 &ndash; Present (Internships 2019 &ndash; 2021)</span>
+            </div>
+
+            <div class="role-list">
+              <div class="role-item current">
+                <div class="role-top">
+                  <h4 class="role-title">Senior Silicon Engineer: Agentic Silicon &amp; Benchmarks</h4>
+                  <span class="role-dates">2026 &ndash; Present</span>
+                </div>
+                <p class="role-team">Google Research (in partnership with AI &amp; TPU Silicon)</p>
+                <ul class="role-bullets">
+                  <li><strong>Spec-to-Silicon Agents:</strong> Building multi-agent flows spanning microarchitecture, RTL/CSR generation, UVM/formal verification, and synthesis/PPA against production silicon signoff gates.</li>
+                  <li><strong>Execution-Grounded Benchmarks:</strong> Mining real production RTL and DV bugs and ground-truth fixes into multi-turn benchmarks scored via live EDA build, simulation, and verification checks for model evaluation and RL.</li>
+                  <li><strong>Simulation-in-the-Loop Debug Agent:</strong> Built an autonomous RTL/UVM debugging agent integrating live simulator CLI checkpointing, incremental re-elaboration, and waveform triage.</li>
+                </ul>
+              </div>
+
+              <div class="role-item">
+                <div class="role-top">
+                  <h4 class="role-title">Senior Silicon Engineer: Tech Lead, AI-Native Chip Design &amp; DV</h4>
+                  <span class="role-dates">2024 &ndash; 2026</span>
+                </div>
+                <p class="role-team">Google Cloud (AI &amp; TPU Silicon)</p>
+                <ul class="role-bullets">
+                  <li><strong>Autonomous Hardware Code Reviewer:</strong> Built and deployed a multi-turn repo-aware RTL/UVM/Bazel review agent on live TPU repos using 7&times; Best-of-N sampling (80&ndash;92% cache hit rate), consensus filtering, and 100% AST syntax checks.</li>
+                  <li><strong>LLM Coverage Closure &amp; Analytics:</strong> Built a C++ Parquet/Polars coverage engine (4&times; faster, sub-0.2s queries across 11M+ bins at zero EDA license cost) driving multi-agent directed stimulus generation.</li>
+                  <li><strong>Adaptive Seed Pruning:</strong> Deployed a marginal-coverage and set-cover analyzer across cloud regressions to prune redundant simulation seeds, cutting compute and EDA license spend.</li>
+                </ul>
+              </div>
+
+              <div class="role-item">
+                <div class="role-top">
+                  <h4 class="role-title">Silicon Engineer: TPU Verification &amp; Cloud EDA Infrastructure</h4>
+                  <span class="role-dates">2021 &ndash; 2024</span>
+                </div>
+                <p class="role-team">Google Cloud (AI &amp; TPU Silicon)</p>
+                <ul class="role-bullets">
+                  <li><strong>TPU Design Verification:</strong> Owned functional and performance verification (SystemVerilog/UVM) for On-Chip Interconnects (OCI) and management fabrics across multiple Google TPU generations.</li>
+                  <li><strong>Cloud EDA Infrastructure:</strong> Built runtime-aware regression schedulers, automated cloud RAM/CPU and EDA license optimization, RTL generator caching, and 3-step incremental simulation flows.</li>
+                  <li><strong>Execution &amp; Leadership:</strong> Owned RTL Freeze across multiple TPU programs; primary Google contributor to open-source <code>riscv-dv</code> (CHIPS Alliance) and Lead of the Silicon US Internship Program (2022&ndash;Present).</li>
+                </ul>
+              </div>
+
+              <div class="role-item">
+                <div class="role-top">
+                  <h4 class="role-title">Student Researcher &amp; Hardware Intern: ML for Verification</h4>
+                  <span class="role-dates">2019 &ndash; 2021 (4 Terms)</span>
+                </div>
+                <p class="role-team">Google Research &amp; TPU Silicon</p>
+                <ul class="role-bullets">
+                  <li><strong>CDG4CDG (DVCon '22):</strong> Co-developed a framework with Google Research that extracts coverage dependency graphs to adaptively steer constrained-random TPU verification stimulus.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Academic Research -->
+          <article class="exp-org-card">
+            <div class="exp-org-header">
+              <h3 class="exp-org-name">Academic Research &amp; Teaching <span class="exp-org-loc">&middot; UC Riverside &middot; IPM &amp; Sharif</span></h3>
+              <span class="exp-org-span">2013 &ndash; 2021</span>
+            </div>
+
+            <div class="role-list">
+              <div class="role-item">
+                <div class="role-top">
+                  <h4 class="role-title">Graduate Student Researcher: Computer Architecture &amp; ML Systems</h4>
+                  <span class="role-dates">2015 &ndash; 2021</span>
+                </div>
+                <p class="role-team">University of California, Riverside &middot; Advisor: Prof. Nael Abu-Ghazaleh</p>
+                <ul class="role-bullets">
+                  <li>Researched GPU microarchitecture, compiler co-design, ML acceleration, and hardware security (8 peer-reviewed papers in ISCA, MICRO, ASPLOS, DAC, CAL; 2 U.S. patent filings).</li>
+                  <li>Co-designed task-based GPU execution and register-file architectures (<strong>BlockMaestro</strong>, <strong>BOW</strong>, <strong>CORF</strong>, <strong>VPPS</strong>, <strong>RegMutex</strong>), achieving up to <strong>2.9&times;&ndash;6&times;</strong> workload speedups and <strong>55%</strong> register-file dynamic energy savings.</li>
+                </ul>
+              </div>
+
+              <div class="role-item">
+                <div class="role-top">
+                  <h4 class="role-title">Instructor: Computer Architecture (CS161)</h4>
+                  <span class="role-dates">2018 &ndash; 2020</span>
+                </div>
+                <p class="role-team">Department of Computer Science &amp; Engineering, UC Riverside</p>
+                <ul class="role-bullets">
+                  <li>Taught undergraduate ISA, processor design, pipelining, cache hierarchy, and virtual memory; earned the campus-wide <strong>Distinguished Teaching Award (Honorable Mention)</strong> and <strong>Outstanding TA Award</strong>.</li>
+                </ul>
+              </div>
+
+              <div class="role-item">
+                <div class="role-top">
+                  <h4 class="role-title">Research Assistant: Computer Architecture</h4>
+                  <span class="role-dates">2013 &ndash; 2015</span>
+                </div>
+                <p class="role-team">HPCAN Lab, Sharif University of Technology &amp; IPM &middot; Tehran, Iran</p>
+                <ul class="role-bullets">
+                  <li>Researched processor microarchitecture and network-on-chip interconnects.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Technical Expertise -->
+        <div class="skills-grid" aria-label="Technical expertise">
+          <div class="skill-box">
+            <h3 class="skill-cat">AI &amp; Agentic Flows</h3>
+            <div class="tag-row">
+              <span class="tag">Multi-Agent Systems</span>
+              <span class="tag">Execution-Grounded Benchmarks</span>
+              <span class="tag">Tool-in-the-Loop Eval</span>
+              <span class="tag">Best-of-N Sampling</span>
+              <span class="tag">ML for EDA</span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <h3 class="skill-cat">Silicon Design &amp; Verification</h3>
+            <div class="tag-row">
+              <span class="tag">SystemVerilog</span>
+              <span class="tag">Verilog</span>
+              <span class="tag">UVM</span>
+              <span class="tag">SVA / Formal</span>
+              <span class="tag">SystemRDL</span>
+              <span class="tag">Coverage Closure</span>
+              <span class="tag">Interconnects</span>
+              <span class="tag">RISC-V</span>
+              <span class="tag">TPU / GPU</span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <h3 class="skill-cat">EDA &amp; Cloud Infrastructure</h3>
+            <div class="tag-row">
+              <span class="tag">Synopsys VCS / Verdi / UCAPI</span>
+              <span class="tag">Cadence Xcelium / Jasper</span>
+              <span class="tag">Synthesis &amp; PPA</span>
+              <span class="tag">Verible AST</span>
+              <span class="tag">Bazel (HDL)</span>
+              <span class="tag">Gerrit</span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <h3 class="skill-cat">Languages &amp; Simulation Tools</h3>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">SystemVerilog</span>
+              <span class="tag">C</span>
+              <span class="tag">Polars / Parquet / SQL</span>
+              <span class="tag">DPI-C</span>
+              <span class="tag">Bash</span>
+              <span class="tag">Git</span>
+              <span class="tag">GPGPU-Sim</span>
+              <span class="tag">gem5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Research Themes ==================== -->
+    <section id="research" class="band">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Research Agenda</p>
+            <h2 class="section-title">Core Research Pillars</h2>
+          </div>
+          <p class="section-note">Unifying production silicon verification, AI-native hardware automation, GPU microarchitecture, and microarchitectural security.</p>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <span class="pillar-num">01 &middot; CURRENT FOCUS</span>
+            <h3>Agentic Chip Design &amp; Execution-Grounded EDA</h3>
+            <p>Designing multi-agent LLM systems that interact directly with commercial EDA toolchains, simulators, AST checkers, and coverage engines to automate RTL/CSR generation, code review, waveform triage, and coverage closure.</p>
+            <div class="pillar-works">
+              <span class="work-chip">Spec-to-Silicon Agents</span>
+              <span class="work-chip">Sim-in-the-Loop Debug</span>
+              <span class="work-chip">CDG4CDG [DVCon '22]</span>
+            </div>
+          </article>
+
+          <article class="pillar-card">
+            <span class="pillar-num">02 &middot; GPU ARCHITECTURE</span>
+            <h3>GPU Register Data-Flow &amp; Task-Based Execution</h3>
+            <p>Hardware-compiler co-designs that reduce GPU register file area, port contention, and dynamic energy while unlocking fine-grained inter-kernel parallelism without programmer rewrites.</p>
+            <div class="pillar-works">
+              <span class="work-chip">BlockMaestro [ISCA '21]</span>
+              <span class="work-chip">BOW [MICRO '20]</span>
+              <span class="work-chip">CORF [ASPLOS '19]</span>
+              <span class="work-chip">RegMutex [ISCA '18]</span>
+            </div>
+          </article>
+
+          <article class="pillar-card">
+            <span class="pillar-num">03 &middot; ML SYSTEMS &amp; DATA</span>
+            <h3>ML Acceleration &amp; High-Throughput Hardware Analytics</h3>
+            <p>Co-optimizing on-chip register residency for dynamic neural networks and building C++/Polars analytics engines that query tens of millions of hardware verification coverage bins in milliseconds.</p>
+            <div class="pillar-works">
+              <span class="work-chip">Locality-Aware RF [CAL '19]</span>
+              <span class="work-chip">VPPS [MICRO '18]</span>
+              <span class="work-chip">11M-Bin Coverage Engine</span>
+            </div>
+          </article>
+
+          <article class="pillar-card">
+            <span class="pillar-num">04 &middot; HARDWARE SECURITY</span>
+            <h3>Architectural Defenses Against Microarchitectural Attacks</h3>
+            <p>Low-overhead microarchitectural mechanisms protecting modern processors against transient execution vulnerabilities (Spectre-class) and last-level cache side-channel leakage.</p>
+            <div class="pillar-works">
+              <span class="work-chip">SpecASan [ISCA '25]</span>
+              <span class="work-chip">IEEE Micro Top Picks '26 HM</span>
+              <span class="work-chip">RIC [DAC '17]</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Publications Explorer ==================== -->
+    <section id="publications" class="band alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Peer-Reviewed Scholarship</p>
+            <h2 class="section-title">Selected Publications</h2>
+          </div>
+          <p class="section-note">
+            <span id="pub-count-label">9 of 9 publications</span> &middot;
+            <a href="https://scholar.google.com/citations?user=2jTzd5YAAAAJ" target="_blank" rel="noopener">View full profile on Google Scholar &rarr;</a>
+          </p>
+        </div>
+
+        <div class="pub-controls">
+          <div class="filter-group" role="group" aria-label="Filter publications by topic">
+            <button type="button" class="filter-btn active" data-filter="all">All (9)</button>
+            <button type="button" class="filter-btn" data-filter="gpu">GPU Architecture (6)</button>
+            <button type="button" class="filter-btn" data-filter="security">Hardware Security (2)</button>
+            <button type="button" class="filter-btn" data-filter="ml-eda">AI &amp; Verification (3)</button>
+          </div>
+          <div class="pub-search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="pub-search-input" placeholder="Search title, author, venue..." aria-label="Search publications" />
+          </div>
+        </div>
+
+        <div class="pub-list" id="pub-list">
+          <!-- 1. SpecASan ISCA '25 -->
+          <article class="pub-card" data-topics="security">
+            <div class="pub-badges">
+              <span class="venue-badge">ISCA '25</span>
+              <span class="award-badge">IEEE Micro Top Picks '26 Honorable Mention</span>
+            </div>
+            <h3 class="pub-title">SpecASan: Mitigating Transient Execution Attacks Using Speculative Address Sanitization</h3>
+            <p class="pub-authors">Saber Ganjisaffar, Esmaeil Mohammadian Koruyeh, Jason Zellmer, <strong>Hodjat Asghari Esfeden</strong>, Chengyu Song, and Nael Abu-Ghazaleh</p>
+            <p class="pub-venue-full">Proceedings of the 52nd Annual International Symposium on Computer Architecture (ACM/IEEE ISCA), Tokyo, Japan, June 2025.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-specasan" aria-expanded="false">Summary</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-specasan" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-specasan">Copy BibTeX</button>
+              <a href="pubs/SpecASan_ISCA25.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+            </div>
+            <div class="pub-drawer" id="abs-specasan">
+              SpecASan introduces speculative address sanitization leveraging hardware memory tagging (Arm MTE) to defend out-of-order processors against transient execution and speculative memory-error attacks at low microarchitectural overhead. Selected as an Honorable Mention for IEEE Micro Top Picks in Computer Architecture (2026).
+            </div>
+            <div class="pub-drawer" id="bib-specasan">
+<pre id="bib-code-specasan">@inproceedings{ganjisaffar2025specasan,
+  title     = {SpecASan: Mitigating Transient Execution Attacks Using Speculative Address Sanitization},
+  author    = {Ganjisaffar, Saber and Koruyeh, Esmaeil Mohammadian and Zellmer, Jason and Asghari Esfeden, Hodjat and Song, Chengyu and Abu-Ghazaleh, Nael},
+  booktitle = {Proceedings of the 52nd Annual International Symposium on Computer Architecture (ISCA)},
+  year      = {2025}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 2. CDG4CDG DVCon '22 -->
+          <article class="pub-card" data-topics="ml-eda">
+            <div class="pub-badges">
+              <span class="venue-badge">DVCon US '22</span>
+            </div>
+            <h3 class="pub-title">Adaptive Test Generation for Fast Functional Coverage Closure</h3>
+            <p class="pub-authors">Azade Nazi, Qijing Huang, Hamid Shojaei, <strong>Hodjat Asghari Esfeden</strong>, Azalia Mirhosseini, and Richard Ho</p>
+            <p class="pub-venue-full">Design and Verification Conference and Exhibition (DVCon US), March 2022.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-dvcon22" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-dvcon22" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-dvcon22">Copy BibTeX</button>
+              <a href="pubs/CDG4CDG_DVCon22.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+            </div>
+            <div class="pub-drawer" id="abs-dvcon22">
+              In this work, we propose a low-overhead framework (CDG4CDG) that automatically extracts the coverage dependency graph associated with a hardware design and leverages the dependency information for adaptive constrained-random test stimuli generation. Experimental results across open-source and large-scale real-world Google TPU designs confirm significantly faster functional coverage convergence with no manual human effort required.
+            </div>
+            <div class="pub-drawer" id="bib-dvcon22">
+<pre id="bib-code-dvcon22">@inproceedings{nazi2022adaptive,
+  title     = {Adaptive Test Generation for Fast Functional Coverage Closure},
+  author    = {Nazi, Azade and Huang, Qijing and Shojaei, Hamid and Asghari Esfeden, Hodjat and Mirhosseini, Azalia and Ho, Richard},
+  booktitle = {Design and Verification Conference and Exhibition (DVCon US)},
+  year      = {2022}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 3. BlockMaestro ISCA '21 -->
+          <article class="pub-card" data-topics="gpu">
+            <div class="pub-badges">
+              <span class="venue-badge">ISCA '21</span>
+            </div>
+            <h3 class="pub-title">BlockMaestro: Enabling Programmer-Transparent Task-based Execution in GPU Systems</h3>
+            <p class="pub-authors">Amirali Abdolrashidi, <strong>Hodjat Asghari Esfeden</strong>, Ali Jahanshahi, Kaustubh Singh, Nael Abu-Ghazaleh, and Daniel Wong</p>
+            <p class="pub-venue-full">The 48th ACM/IEEE International Symposium on Computer Architecture (ISCA), June 2021.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-blockmaestro" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-blockmaestro" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-blockmaestro">Copy BibTeX</button>
+              <a href="pubs/BlockMaestro_ISCA21.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+            </div>
+            <div class="pub-drawer" id="abs-blockmaestro">
+              Emerging GPU workloads contain hundreds or thousands of kernel launches with inter-kernel data dependencies that cause high launch overhead, synchronization stalls, and under-utilization. BlockMaestro is a software-hardware solution combining command queue reordering, kernel-launch-time static analysis, kernel pre-launching, and runtime hardware dependency resolution to enable programmer-transparent thread-block-level task execution, achieving 51.76% average speedup (up to 2.92&times;) on data-dependent benchmarks with minimal hardware overhead.
+            </div>
+            <div class="pub-drawer" id="bib-blockmaestro">
+<pre id="bib-code-blockmaestro">@inproceedings{abdolrashidi2021blockmaestro,
+  title     = {BlockMaestro: Enabling Programmer-Transparent Task-based Execution in GPU Systems},
+  author    = {Abdolrashidi, Amirali and Asghari Esfeden, Hodjat and Jahanshahi, Ali and Singh, Kaustubh and Abu-Ghazaleh, Nael and Wong, Daniel},
+  booktitle = {Proceedings of the 48th Annual International Symposium on Computer Architecture (ISCA)},
+  year      = {2021}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 4. BOW MICRO '20 -->
+          <article class="pub-card" data-topics="gpu">
+            <div class="pub-badges">
+              <span class="venue-badge">MICRO '20</span>
+              <span class="award-badge">First Author &middot; U.S. Patent App.</span>
+            </div>
+            <h3 class="pub-title">BOW: Breathing Operand Windows to Exploit Bypassing in GPUs</h3>
+            <p class="pub-authors"><strong>Hodjat Asghari Esfeden</strong>, Amirali Abdolrashidi, Shafiur Rahman, Daniel Wong, and Nael Abu-Ghazaleh</p>
+            <p class="pub-venue-full">The 53rd IEEE/ACM International Symposium on Microarchitecture (MICRO), October 2020.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-bow" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-bow" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-bow">Copy BibTeX</button>
+              <a href="pubs/BOW_Micro_20__Camera_Ready.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+            </div>
+            <div class="pub-drawer" id="abs-bow">
+              Frequent accesses to multi-bank GPU register files incur major dynamic power overhead and bank-conflict delays. Observing strong temporal locality in register accesses within short instruction windows, we propose Breathing Operand Windows (BOW) &mdash; an enhanced GPU pipeline, operand collector organization, and compiler optimization that bypasses both unnecessary register file reads and writes. BOW reduces register file dynamic energy consumption by 55% and improves overall performance by 11% with only 12 KB of additional storage (~4% of RF size).
+            </div>
+            <div class="pub-drawer" id="bib-bow">
+<pre id="bib-code-bow">@inproceedings{esfeden2020bow,
+  title     = {BOW: Breathing Operand Windows to Exploit Bypassing in GPUs},
+  author    = {Asghari Esfeden, Hodjat and Abdolrashidi, Amirali and Rahman, Shafiur and Wong, Daniel and Abu-Ghazaleh, Nael},
+  booktitle = {Proceedings of the 53rd Annual IEEE/ACM International Symposium on Microarchitecture (MICRO)},
+  year      = {2020}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 5. Locality-aware GPU RF IEEE CAL '19 -->
+          <article class="pub-card" data-topics="gpu,ml-eda">
+            <div class="pub-badges">
+              <span class="venue-badge">IEEE CAL '19</span>
+            </div>
+            <h3 class="pub-title">Locality-aware GPU Register File</h3>
+            <p class="pub-authors">Hyeran Jeon, <strong>Hodjat Asghari Esfeden</strong>, Nael Abu-Ghazaleh, Daniel Wong, and Sindhuja Elango</p>
+            <p class="pub-venue-full">IEEE Computer Architecture Letters (CAL), November 2019.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-cal19" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-cal19" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-cal19">Copy BibTeX</button>
+              <a href="pubs/Locality-Aware-GPU-RF_CAL_CameraReady.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+            </div>
+            <div class="pub-drawer" id="abs-cal19">
+              We propose a locality-aware GPU register file that enables inter-warp data sharing for memory-intensive deep learning and big-data workloads without relying on small shared memory. Through an extended register mapping mechanism, warps opportunistically share or reconstruct operands already resident in physical registers, achieving over 2&times; speedup and up to 57% register space savings.
+            </div>
+            <div class="pub-drawer" id="bib-cal19">
+<pre id="bib-code-cal19">@article{jeon2019locality,
+  title   = {Locality-aware GPU Register File},
+  author  = {Jeon, Hyeran and Asghari Esfeden, Hodjat and Abu-Ghazaleh, Nael and Wong, Daniel and Elango, Sindhuja},
+  journal = {IEEE Computer Architecture Letters},
+  year    = {2019}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 6. CORF ASPLOS '19 -->
+          <article class="pub-card" data-topics="gpu">
+            <div class="pub-badges">
+              <span class="venue-badge">ASPLOS '19</span>
+              <span class="award-badge">First Author &middot; U.S. Patent 12,417,083</span>
+            </div>
+            <h3 class="pub-title">CORF: Coalescing Operand Register File for GPUs</h3>
+            <p class="pub-authors"><strong>Hodjat Asghari Esfeden</strong>, Farzad Khorasani, Hyeran Jeon, Daniel Wong, and Nael Abu-Ghazaleh</p>
+            <p class="pub-venue-full">The 24th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS), Providence, RI, April 2019.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-corf" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-corf" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-corf">Copy BibTeX</button>
+              <a href="pubs/CORF_ASPLOS_19_Camera_Ready.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+              <a href="pubs/CORF_ASPLOS19_Presentation.pptx" target="_blank" rel="noopener" class="pub-btn">Slides</a>
+              <a href="pubs/CORF_ASPLOS_19_Poster.pdf" target="_blank" rel="noopener" class="pub-btn">Poster</a>
+              <a href="https://youtu.be/7csXi6GSs6c" target="_blank" rel="noopener" class="pub-btn">Video</a>
+            </div>
+            <div class="pub-drawer" id="abs-corf">
+              CORF is a compiler-assisted Coalescing Operand Register File that combines reads to multiple narrow-width operands required by a single GPU instruction into one physical register read via register packing. Extending this to mutually exclusive sub-banks (CORF++) via bipartite edge-frustration graph coloring reduces RF dynamic energy by 17% and improves IPC by 9%.
+            </div>
+            <div class="pub-drawer" id="bib-corf">
+<pre id="bib-code-corf">@inproceedings{esfeden2019corf,
+  title        = {CORF: Coalescing Operand Register File for GPUs},
+  author       = {Asghari Esfeden, Hodjat and Khorasani, Farzad and Jeon, Hyeran and Wong, Daniel and Abu-Ghazaleh, Nael},
+  booktitle    = {Proceedings of the 24th International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)},
+  year         = {2019},
+  organization = {ACM}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 7. VPPS MICRO '18 -->
+          <article class="pub-card" data-topics="gpu,ml-eda">
+            <div class="pub-badges">
+              <span class="venue-badge">MICRO '18</span>
+            </div>
+            <h3 class="pub-title">In-Register Parameter Caching for Dynamic Neural Nets with Virtual Persistent Processor Specialization</h3>
+            <p class="pub-authors">Farzad Khorasani, <strong>Hodjat Asghari Esfeden</strong>, Nael Abu-Ghazaleh, and Vivek Sarkar</p>
+            <p class="pub-venue-full">The 51st Annual IEEE/ACM International Symposium on Microarchitecture (MICRO), Fukuoka, Japan, October 2018.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-vpps" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-vpps" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-vpps">Copy BibTeX</button>
+              <a href="pubs/VPPS_MICRO2018.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+              <a href="pubs/VPPS.pptx" target="_blank" rel="noopener" class="pub-btn">Slides</a>
+              <a href="https://www.youtube.com/watch?v=c4r8mBd5whA" target="_blank" rel="noopener" class="pub-btn">Video</a>
+            </div>
+            <div class="pub-drawer" id="abs-vpps">
+              Virtual Persistent Processor Specialization (VPPS) enables on-chip in-register caching of recurrent weight matrices during the training of dynamic neural networks on GPUs. By virtualizing persistent kernel CTAs as CISC-like vector processors, VPPS eliminates redundant off-chip memory loads and kernel launch overheads across varying computation graphs, delivering up to 6&times; speedup on Volta GPUs in DyNet.
+            </div>
+            <div class="pub-drawer" id="bib-vpps">
+<pre id="bib-code-vpps">@inproceedings{khorasani2018vpps,
+  title     = {In-Register Parameter Caching for Dynamic Neural Nets with Virtual Persistent Processor Specialization},
+  author    = {Khorasani, Farzad and Asghari Esfeden, Hodjat and Abu-Ghazaleh, Nael and Sarkar, Vivek},
+  booktitle = {Proceedings of the 51st Annual IEEE/ACM International Symposium on Microarchitecture (MICRO)},
+  year      = {2018}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 8. RegMutex ISCA '18 -->
+          <article class="pub-card" data-topics="gpu">
+            <div class="pub-badges">
+              <span class="venue-badge">ISCA '18</span>
+            </div>
+            <h3 class="pub-title">RegMutex: Inter-Warp GPU Register Time-Sharing</h3>
+            <p class="pub-authors">Farzad Khorasani, <strong>Hodjat Asghari Esfeden</strong>, Amin Farmahini-Farahani, Nuwan Jayasena, and Vivek Sarkar</p>
+            <p class="pub-venue-full">The 45th ACM/IEEE International Symposium on Computer Architecture (ISCA), Los Angeles, CA, June 2018 (16.9% acceptance rate).</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-regmutex" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-regmutex" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-regmutex">Copy BibTeX</button>
+              <a href="pubs/ISCA18_RegMutex.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+              <a href="pubs/RegMutex.pptx" target="_blank" rel="noopener" class="pub-btn">Slides</a>
+              <a href="https://www.youtube.com/watch?v=0AdeVVMSdrM" target="_blank" rel="noopener" class="pub-btn">Video</a>
+            </div>
+            <div class="pub-drawer" id="abs-regmutex">
+              Static worst-case register allocation leaves large portions of GPU register files under-utilized. RegMutex (Register Mutual Exclusion) is a compiler-hardware co-design that splits architected registers into a dedicated base set and a time-shared extended set across warps, increasing occupancy and cutting execution cycles by up to 23% on register-heavy GPU kernels.
+            </div>
+            <div class="pub-drawer" id="bib-regmutex">
+<pre id="bib-code-regmutex">@inproceedings{khorasani2018regmutex,
+  title     = {RegMutex: Inter-Warp GPU Register Time-Sharing},
+  author    = {Khorasani, Farzad and Asghari Esfeden, Hodjat and Farmahini-Farahani, Amin and Jayasena, Nuwan and Sarkar, Vivek},
+  booktitle = {Proceedings of the 45th Annual International Symposium on Computer Architecture (ISCA)},
+  year      = {2018}
+}</pre>
+            </div>
+          </article>
+
+          <!-- 9. RIC DAC '17 -->
+          <article class="pub-card" data-topics="security">
+            <div class="pub-badges">
+              <span class="venue-badge">DAC '17</span>
+            </div>
+            <h3 class="pub-title">RIC: Relaxed Inclusion Caches for Mitigating LLC Side-Channel Attacks</h3>
+            <p class="pub-authors">Mehmet Kayaalp, Khaled N. Khasawneh, <strong>Hodjat Asghari Esfeden</strong>, Jesse Elwell, Nael Abu-Ghazaleh, Dmitry Ponomarev, and Aamer Jaleel</p>
+            <p class="pub-venue-full">The 54th ACM/EDAC/IEEE Design Automation Conference (DAC), Austin, TX, June 2017.</p>
+            <div class="pub-actions">
+              <button type="button" class="pub-btn" data-toggle-drawer="abs-ric" aria-expanded="false">Abstract</button>
+              <button type="button" class="pub-btn" data-toggle-drawer="bib-ric" aria-expanded="false">BibTeX</button>
+              <button type="button" class="pub-btn" data-copy-bib="bib-code-ric">Copy BibTeX</button>
+              <a href="pubs/dac17.pdf" target="_blank" rel="noopener" class="pub-btn">PDF</a>
+              <a href="pubs/dac17.pptx" target="_blank" rel="noopener" class="pub-btn">Slides</a>
+            </div>
+            <div class="pub-drawer" id="abs-ric">
+              Side-channel attacks on Last Level Caches (LLCs) rely on evicting critical victim data from private caches via inclusive back-invalidations. Relaxed Inclusion Caches (RIC) selectively relaxes inclusion for protected lines, blocking LLC eviction-based leakage while retaining snoop-filtering benefits and improving performance by ~10% with minimal cache hardware changes.
+            </div>
+            <div class="pub-drawer" id="bib-ric">
+<pre id="bib-code-ric">@inproceedings{kayaalp2017ric,
+  title     = {RIC: Relaxed Inclusion Caches for Mitigating LLC Side-Channel Attacks},
+  author    = {Kayaalp, Mehmet and Khasawneh, Khaled N. and Asghari Esfeden, Hodjat and Elwell, Jesse and Abu-Ghazaleh, Nael and Ponomarev, Dmitry and Jaleel, Aamer},
+  booktitle = {Proceedings of the 54th Annual Design Automation Conference (DAC)},
+  pages     = {1--6},
+  year      = {2017}
+}</pre>
+            </div>
+          </article>
+        </div>
+
+        <div class="pub-empty" id="pub-empty" style="display:none;">
+          No publications match your current filter and search query.
+        </div>
+
+        <p class="pub-copyright">
+          <strong>Copyright notice:</strong> Scholarly documents hosted here are provided to ensure timely dissemination of research. Copyright and all rights therein remain with the authors or respective copyright holders.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== Patents, Education & Honors ==================== -->
+    <section id="patents" class="band">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Intellectual Property &amp; Credentials</p>
+            <h2 class="section-title">Patents, Education &amp; Honors</h2>
+          </div>
+        </div>
+
+        <!-- Patents -->
+        <div class="two-col" style="margin-bottom: 24px;">
+          <article class="card">
+            <span class="patent-status granted">Issued &middot; Sep 2025</span>
+            <h3>Coalescing Operand Register File for Graphical Processing Units</h3>
+            <p class="subline">N. Abu-Ghazaleh, <strong>H. Asghari Esfeden</strong>, D. Wong &middot; Assignee: Regents of the University of California</p>
+            <p class="meta-mono">Granted U.S. Patent 12,417,083 &middot; <a href="https://patents.justia.com/patent/12417083" target="_blank" rel="noopener">Justia Record &rarr;</a></p>
+          </article>
+
+          <article class="card">
+            <span class="patent-status pending">Published &middot; Dec 2023</span>
+            <h3>Breathing Operand Windows to Exploit Bypassing in Graphics Processing Units</h3>
+            <p class="subline"><strong>H. Asghari Esfeden</strong>, N. Abu-Ghazaleh &middot; UC Riverside Tech Transfer</p>
+            <p class="meta-mono">U.S. Patent App. 2023/0393850 A1 (App. 18/032,157) &middot; <a href="https://techtransfer.universityofcalifornia.edu/NCD/32223.html" target="_blank" rel="noopener">UC Tech Disclosure &rarr;</a></p>
+          </article>
+        </div>
+
+        <!-- Education + Honors -->
+        <div class="two-col">
+          <article class="card">
+            <p class="section-kicker" style="margin-bottom: 14px;">Education</p>
+            <div class="edu-item">
+              <div class="edu-top">
+                <span class="edu-school">University of California, Riverside</span>
+                <span class="edu-years">2015 &ndash; 2021</span>
+              </div>
+              <p class="edu-deg">Ph.D. &amp; M.Sc. in Computer Science (GPA: 3.91 / 4.00)</p>
+              <p class="edu-detail">Dissertation: <em>Enhanced Register Data-Flow Techniques for High-Performance, Energy-Efficient GPUs</em> &middot; Advisor: <a href="https://www.cs.ucr.edu/~nael/" target="_blank" rel="noopener">Prof. Nael Abu-Ghazaleh</a></p>
+            </div>
+            <div class="edu-item">
+              <div class="edu-top">
+                <span class="edu-school">Sharif University of Technology</span>
+                <span class="edu-years">2010 &ndash; 2015</span>
+              </div>
+              <p class="edu-deg">B.Sc. in Computer Engineering</p>
+              <p class="edu-detail">Tehran, Iran &middot; HPCAN Lab &amp; IPM Research Assistant</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <p class="section-kicker" style="margin-bottom: 14px;">Honors &amp; Academic Service</p>
+            <ul class="clean-list">
+              <li><strong>IEEE Micro Top Picks '26 (Honorable Mention):</strong> Recognized for <em>SpecASan</em> (ISCA '25).</li>
+              <li><strong>Distinguished Teaching Award (Honorable Mention) &amp; Outstanding TA Award</strong>, UC Riverside (2020): Awarded to the top 2 graduate instructors campus-wide for CS161.</li>
+              <li><strong>Dean's Distinguished Fellowship</strong>, UC Riverside (2015).</li>
+              <li><strong>Ranked 17th / 100,000+</strong> in Iran's National University Entrance Exam (2010).</li>
+              <li><strong>External Review Committee / Reviewer:</strong> Design Automation Conference (DAC), IEEE Transactions on Computers, ACM TECS, HASP.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Teaching, Mentorship & Milestones ==================== -->
+    <section id="teaching" class="band alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Mentorship &amp; Milestones</p>
+            <h2 class="section-title">Teaching, Leadership &amp; News</h2>
+          </div>
+        </div>
+
+        <div class="two-col" style="margin-bottom: 28px;">
+          <article class="card">
+            <p class="section-kicker" style="margin-bottom: 8px;">Industry Leadership</p>
+            <h3>Google Silicon US Internship Program &amp; Open Source</h3>
+            <p class="subline">Lead of the Google Silicon US Internship Program (2022&ndash;Present), mentoring incoming silicon and verification engineers across TPU teams. Primary Google contributor to open-source <a href="https://github.com/chipsalliance/riscv-dv" target="_blank" rel="noopener"><code>riscv-dv</code></a> under the CHIPS Alliance.</p>
+          </article>
+
+          <article class="card">
+            <p class="section-kicker" style="margin-bottom: 8px;">University Instruction</p>
+            <h3>CS161: Design &amp; Architecture of Computer Systems</h3>
+            <p class="subline">Sole instructor at UC Riverside covering instruction set architecture, single-cycle and pipelined processors, cache hierarchy, and virtual memory.</p>
+            <div class="tag-row" style="margin-top: 12px;">
+              <span class="tag">Spring 2019 &middot; Instructor</span>
+              <span class="tag">Winter 2019 &middot; Instructor</span>
+              <span class="tag">Distinguished Teaching Award HM</span>
+            </div>
+          </article>
+        </div>
+
+        <h3 style="margin: 0 0 14px; font-family: var(--font-serif); font-size: 21px; font-weight: 500;">Recent &amp; Archived Milestones</h3>
+        <ul class="milestones-list" id="milestones-list">
+          <li class="milestone-row">
+            <span class="milestone-date">Apr 2026</span>
+            <span><strong>SpecASan</strong> (ISCA '25) selected as an Honorable Mention for <strong>IEEE Micro Top Picks</strong> in Computer Architecture.</span>
+          </li>
+          <li class="milestone-row">
+            <span class="milestone-date">2026</span>
+            <span>Joined <strong>Google Research</strong> (in partnership with AI &amp; TPU Silicon) as Senior Silicon Engineer focusing on Agentic Silicon &amp; Execution-Grounded Benchmarks.</span>
+          </li>
+          <li class="milestone-row">
+            <span class="milestone-date">Sep 2025</span>
+            <span>Granted <strong>U.S. Patent 12,417,083</strong> for <em>Coalescing Operand Register File for Graphical Processing Units</em> (CORF).</span>
+          </li>
+          <li class="milestone-row">
+            <span class="milestone-date">Jun 2025</span>
+            <span>Paper <em>SpecASan: Mitigating Transient Execution Attacks Using Speculative Address Sanitization</em> presented at <strong>ISCA '25</strong> (Tokyo).</span>
+          </li>
+          <li class="milestone-row">
+            <span class="milestone-date">2024</span>
+            <span>Promoted to Tech Lead for AI-Native Chip Design &amp; DV in Google Cloud AI &amp; TPU Silicon.</span>
+          </li>
+          <li class="milestone-row">
+            <span class="milestone-date">Dec 2023</span>
+            <span>U.S. Patent Application <strong>2023/0393850 A1</strong> published for <em>Breathing Operand Windows</em> (BOW).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Mar 2022</span>
+            <span>Paper <em>Adaptive Test Generation for Fast Functional Coverage Closure</em> (CDG4CDG) published at <strong>DVCon US '22</strong>.</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">May 2021</span>
+            <span>Defended Ph.D. dissertation: <em>Enhanced Register Data-Flow Techniques for High-Performance, Energy-Efficient GPUs</em> at UC Riverside.</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Apr 2021</span>
+            <span>Joined <strong>Google</strong> full-time as an ASIC Design Verification Engineer (Sunnyvale, CA).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Mar 2021</span>
+            <span><em>BlockMaestro</em> accepted to the 48th ACM/IEEE International Symposium on Computer Architecture (<strong>ISCA '21</strong>).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Nov 2020</span>
+            <span>UC technology disclosure filed for our <strong>BOW</strong> GPU register bypassing microarchitecture.</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Sep 2020</span>
+            <span>Fall '20 Google Hardware Engineering Internship working on ML for Design Verification.</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Jul 2020</span>
+            <span><em>BOW: Breathing Operand Windows to Exploit Bypassing in GPUs</em> accepted to <strong>MICRO '20</strong>.</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">May 2020</span>
+            <span>Awarded UCR <strong>Outstanding Teaching Assistant Award</strong> &amp; <strong>Distinguished Teaching Award (Honorable Mention)</strong> (top 2 campus-wide).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Nov 2019</span>
+            <span><em>Locality-aware GPU Register File</em> accepted in <strong>IEEE Computer Architecture Letters (CAL)</strong>.</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Apr 2019</span>
+            <span>Summer '19 Hardware Engineering Internship at <strong>Google</strong> (Sunnyvale, CA).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Nov 2018</span>
+            <span><em>CORF: Coalescing Operand Register File for GPUs</em> accepted to <strong>ASPLOS '19</strong> (Providence, RI).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Oct 2018</span>
+            <span>Appointed Instructor for CS161 <em>Design and Architecture of Computer Systems</em> (Winter &amp; Spring 2019).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Jul 2018</span>
+            <span><em>VPPS: In-Register Parameter Caching for Dynamic Neural Nets</em> accepted to <strong>MICRO '18</strong> (Fukuoka, Japan).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Mar 2018</span>
+            <span><em>RegMutex: Inter-Warp GPU Register Time-Sharing</em> accepted to <strong>ISCA '18</strong> (Los Angeles, CA; 16.9% acceptance rate).</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Jun 2017</span>
+            <span>Received M.Sc. in Computer Science from University of California, Riverside.</span>
+          </li>
+          <li class="milestone-row archived">
+            <span class="milestone-date">Feb 2017</span>
+            <span>Passed Ph.D. Oral Qualifying Exam; <em>RIC: Relaxed Inclusion Caches</em> accepted to <strong>DAC '17</strong> (Austin, TX).</span>
+          </li>
+        </ul>
+        <div class="milestones-toggle-wrap">
+          <button type="button" class="btn btn-ghost" id="milestones-toggle" aria-expanded="false">Show full 2017&ndash;2022 archive (16 more)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Contact ==================== -->
+    <section id="contact" class="band">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-copy">
+            <p class="section-kicker" style="margin-bottom: 6px;">Get in Touch</p>
+            <h2>Let's Connect</h2>
+            <p>Always happy to discuss agentic hardware engineering, execution-grounded EDA benchmarks, silicon architecture, research collaborations, or mentoring.</p>
+          </div>
+          <div class="contact-actions">
+            <a href="mailto:hodjat91@gmail.com" class="btn btn-primary">Email hodjat91@gmail.com</a>
+            <button type="button" class="btn btn-secondary" id="copy-email-btn" data-email="hodjat91@gmail.com">Copy Email</button>
+            <a href="Hodjat_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Resume PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; 2026 Hodjat Asghari Esfeden, Ph.D. &middot; Bay Area, CA</span>
+      <div class="footer-links">
+        <a href="https://scholar.google.com/citations?user=2jTzd5YAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/hodjat91" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/hodjat-asghari-esfeden-b8448784/" target="_blank" rel="noopener" id="footer-linkedin-link">LinkedIn</a>
+        <a href="https://x.com/hodjat91" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="Hodjat_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
